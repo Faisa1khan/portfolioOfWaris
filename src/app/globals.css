@@ -5,8 +5,259 @@
   --font-serif: var(--font-playfair);
 }
 
+/* ═══════════════════════════════════════════════
+   BASE STYLES
+   ═══════════════════════════════════════════════ */
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: #050505;
   color: #ededed;
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* ═══════════════════════════════════════════════
+   CUSTOM SCROLLBAR
+   ═══════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c7aa76 0%, #8a7350 100%);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #d4b883 0%, #c7aa76 100%);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c7aa76 #0a0a0a;
+}
+
+/* ═══════════════════════════════════════════════
+   TEXT SELECTION
+   ═══════════════════════════════════════════════ */
+
+::selection {
+  background: rgba(199, 170, 118, 0.3);
+  color: #fff;
+}
+
+::-moz-selection {
+  background: rgba(199, 170, 118, 0.3);
+  color: #fff;
+}
+
+/* ═══════════════════════════════════════════════
+   FILM GRAIN OVERLAY
+   ═══════════════════════════════════════════════ */
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}
+
+.film-grain {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  width: 200%;
+  height: 200%;
+  background: transparent url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E") repeat;
+  animation: grain 8s steps(10) infinite;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+}
+
+/* ═══════════════════════════════════════════════
+   CINEMATIC LETTERBOX
+   ═══════════════════════════════════════════════ */
+
+.letterbox-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: #000;
+  z-index: 100;
+  pointer-events: none;
+  transition: opacity 1.5s ease;
+}
+
+.letterbox-top { top: 0; }
+.letterbox-bottom { bottom: 0; }
+
+/* ═══════════════════════════════════════════════
+   SECTION DIVIDERS
+   ═══════════════════════════════════════════════ */
+
+.section-divider {
+  position: relative;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(199, 170, 118, 0.2) 20%,
+    rgba(199, 170, 118, 0.4) 50%,
+    rgba(199, 170, 118, 0.2) 80%,
+    transparent 100%
+  );
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════════════
+   ANIMATED UNDERLINE LINKS
+   ═══════════════════════════════════════════════ */
+
+.link-hover-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-hover-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background: #c7aa76;
+  transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.link-hover-underline:hover::after {
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════════
+   GLOW EFFECTS
+   ═══════════════════════════════════════════════ */
+
+.gold-glow {
+  box-shadow: 0 0 0 1px rgba(199, 170, 118, 0), 0 0 20px rgba(199, 170, 118, 0);
+  transition: box-shadow 0.5s ease;
+}
+
+.gold-glow:hover {
+  box-shadow: 0 0 0 1px rgba(199, 170, 118, 0.3), 0 0 30px rgba(199, 170, 118, 0.08);
+}
+
+/* ═══════════════════════════════════════════════
+   CUSTOM CURSOR INTERACTIVE ELEMENTS
+   ═══════════════════════════════════════════════ */
+
+.cursor-dot {
+  cursor: pointer;
+}
+
+/* ═══════════════════════════════════════════════
+   PAGE LOAD ANIMATION
+   ═══════════════════════════════════════════════ */
+
+@keyframes pageReveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.page-reveal {
+  animation: pageReveal 1.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLL INDICATOR BOUNCE
+   ═══════════════════════════════════════════════ */
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+.scroll-bounce {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════
+   SHIMMER EFFECT
+   ═══════════════════════════════════════════════ */
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-hover:hover {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(199, 170, 118, 0.08) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* ═══════════════════════════════════════════════
+   BACK TO TOP BUTTON
+   ═══════════════════════════════════════════════ */
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(199, 170, 118, 0.15);
+  border: 1px solid rgba(199, 170, 118, 0.3);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c7aa76;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: rgba(199, 170, 118, 0.3);
+  border-color: rgba(199, 170, 118, 0.6);
+  transform: translateY(-3px);
 }

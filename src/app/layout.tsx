@@ -25,9 +25,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} antialiased scroll-smooth`}
+      className={`${inter.variable} ${playfair.variable} antialiased`}
     >
-      <body className="min-h-screen flex flex-col" suppressHydrationWarning>{children}</body>
+      <body className="min-h-screen flex flex-col" suppressHydrationWarning>
+        {/* Film Grain Overlay */}
+        <div className="film-grain" />
+        {children}
+      </body>
     </html>
   );
 }
