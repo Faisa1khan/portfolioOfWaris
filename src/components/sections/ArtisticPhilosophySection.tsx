@@ -4,7 +4,7 @@ import { staggerContainer, fadeUp } from '@/utils/animations';
 
 export default function ArtisticPhilosophySection() {
   return (
-    <section className="py-32 px-6 md:px-12 lg:px-24 bg-[#080808] border-b border-neutral-900/50">
+    <section id="philosophy" className="py-32 px-6 md:px-12 lg:px-24 bg-[#080808] border-b border-neutral-900/50">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
         
         {/* Left Column - Statement */}

@@ -5,7 +5,7 @@ import { Mail, Phone, Globe } from 'lucide-react';
 
 export default function FooterSection() {
   return (
-    <footer className="bg-[#050505] text-white">
+    <footer id="contact" className="bg-[#050505] text-white">
       {/* Big Contact CTA */}
       <div className="py-32 px-6 md:px-12 lg:px-24 border-t border-neutral-900/50 flex flex-col items-center text-center bg-[#080808]">
         <motion.div
@@ -83,10 +83,10 @@ export default function FooterSection() {
             <div className="flex flex-col gap-6">
               <span className="text-[#c7aa76] text-xs font-mono tracking-[0.2em] uppercase font-bold">Navigation</span>
               <div className="flex flex-col gap-4 text-neutral-400 font-light text-sm">
-                <a href="#" className="hover:text-white transition-colors">Projects</a>
-                <a href="#" className="hover:text-white transition-colors">About Us</a>
-                <a href="#" className="hover:text-white transition-colors">Creative Process</a>
-                <a href="#" className="hover:text-white transition-colors">Philosophy</a>
+                <a href="#projects" className="hover:text-white transition-colors">Projects</a>
+                <a href="#about" className="hover:text-white transition-colors">About Us</a>
+                <a href="#process" className="hover:text-white transition-colors">Creative Process</a>
+                <a href="#philosophy" className="hover:text-white transition-colors">Philosophy</a>
               </div>
             </div>
 

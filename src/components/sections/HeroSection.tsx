@@ -42,12 +42,12 @@ export default function HeroSection() {
         </motion.p>
 
         <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
-          <button className="px-10 py-4 bg-white text-black uppercase tracking-[0.2em] text-xs font-bold hover:bg-neutral-200 transition-colors duration-500 w-full sm:w-auto">
+          <a href="#projects" className="px-10 py-4 bg-white text-black uppercase tracking-[0.2em] text-xs font-bold hover:bg-neutral-200 transition-colors duration-500 w-full sm:w-auto inline-block text-center">
             View our Work
-          </button>
-          <button className="px-10 py-4 bg-transparent text-white border border-neutral-700 uppercase tracking-[0.2em] text-xs font-bold hover:border-white hover:bg-white/5 transition-all duration-500 w-full sm:w-auto">
+          </a>
+          <a href="#contact" className="px-10 py-4 bg-transparent text-white border border-neutral-700 uppercase tracking-[0.2em] text-xs font-bold hover:border-white hover:bg-white/5 transition-all duration-500 w-full sm:w-auto inline-block text-center">
             Get in Touch
-          </button>
+          </a>
         </motion.div>
       </motion.div>
 

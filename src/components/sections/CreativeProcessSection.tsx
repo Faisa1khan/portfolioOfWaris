@@ -16,7 +16,7 @@ export default function CreativeProcessSection() {
   ];
 
   return (
-    <section className="py-32 px-6 md:px-12 lg:px-24 bg-[#050505]">
+    <section id="process" className="py-32 px-6 md:px-12 lg:px-24 bg-[#050505]">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start">
         
         {/* Left Column - Intro */}

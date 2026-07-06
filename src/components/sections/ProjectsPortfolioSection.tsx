@@ -16,7 +16,7 @@ export default function ProjectsPortfolioSection() {
   const hasMore = visibleCount < projectsData.length;
 
   return (
-    <section className="py-32 bg-[#050505]">
+    <section id="projects" className="py-32 bg-[#050505]">
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 mb-20">
         <motion.div
           initial="hidden"

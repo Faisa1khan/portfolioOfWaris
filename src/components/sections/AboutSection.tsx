@@ -5,7 +5,7 @@ import { Clapperboard, Film, Video, MonitorPlay, Megaphone, Target } from 'lucid
 
 export default function AboutSection() {
   return (
-    <section className="relative py-32 px-6 md:px-12 lg:px-24 bg-[#0a0a0a] overflow-hidden border-y border-neutral-900/50">
+    <section id="about" className="relative py-32 px-6 md:px-12 lg:px-24 bg-[#0a0a0a] overflow-hidden border-y border-neutral-900/50">
       
       {/* Background Texture (Dark mode paper/grunge adaptation) */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/aged-paper.png")' }} />
